@@ -1,0 +1,14 @@
+.app {
+  height: 100vh;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffdf8c;
+}
+.app__container {
+  width: 95%;
+  height: 95%;
+  background-color: white;
+  border-radius: 10px;
+}
