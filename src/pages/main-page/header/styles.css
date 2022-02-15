@@ -1,10 +1,66 @@
 .header {
   height: 137px;
+  padding: 50px 38px 40px 77px;
+  border-bottom: 1px solid #f6f6f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .header__container {
   height: 100%;
+  display: flex;
+  align-items: center;
+}
+.header__container h1 {
+  font-family: "Roboto";
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 24px;
+}
+.header__container h3 {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 16px;
 }
 .header__logo {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
+}
+
+/* кнопка заказа оранжевая */
+.orderButton {
+  width: 150px;
+  height: 50px;
+  background-color: #fe5f1e;
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+}
+.orderButton__container {
+  width: 100%;
+  height: 100%;
+  padding: 0px 23px 0px 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.orderButton__orders {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+}
+.orderButton__bracket {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 5px;
+  margin-left: 12px;
+}
+.orderButton__price {
+  height: 25px;
+  border-right: 1px solid white;
+  display: flex;
+  width: 50%;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Header } from "./pages/main-page/header/Header";
+import { NavigationComponent } from "./pages/main-page/navigation/NavigationComponent";
 import "./styles.css";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className='app'>
       <div className='app__container'>
         <Header />
+        <NavigationComponent></NavigationComponent>
       </div>
     </div>
   );
