@@ -5,8 +5,13 @@ import "./styles.css";
 export class NavigationComponent extends React.Component {
   render() {
     return (
-      <div>
-        <NavButton></NavButton>
+      <div className='navigation__container'>
+        <NavButton name='Все' />
+        <NavButton name='Мясные' />
+        <NavButton name='Вегетарианские' />
+        <NavButton name='Гриль' />
+        <NavButton name='Острые' />
+        <NavButton name='Закрытые' />
       </div>
     );
   }

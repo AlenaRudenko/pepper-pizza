@@ -1,0 +1,12 @@
+.pizza__container {
+  width: 280px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pizza__container img {
+  width: 100%;
+  height: 100%;
+}
