@@ -11,6 +11,10 @@
   height: 95%;
   background-color: white;
   border-radius: 10px;
+  padding: 0px 67px;
+}
+.app__title {
+  margin: 32px 0px;
 }
 /* Указываем box sizing */
 *,
@@ -89,4 +93,9 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+.content__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 32px 0px 32px 0px;
 }

@@ -10,7 +10,8 @@ function App() {
       <div className='app__container'>
         <Header />
         <NavigationComponent />
-        <PizzaComponent />
+        <h2 className="app__title">Все пиццы</h2>
+        <PizzaComponent name="Чизбургер пицца"/>
       </div>
     </div>
   );
