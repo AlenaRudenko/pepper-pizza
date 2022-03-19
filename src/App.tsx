@@ -10,8 +10,17 @@ function App() {
       <div className='app__container'>
         <Header />
         <NavigationComponent />
-        <h2 className="app__title">Все пиццы</h2>
-        <PizzaComponent name="Чизбургер пицца"/>
+        <h2 className='app__title'>Все пиццы</h2>
+        <div className='content__container'>
+          <PizzaComponent name='Чизбургер пицца' />
+          <PizzaComponent name='Сырная' />
+          <PizzaComponent name='Креветки по-азиатски' />
+          <PizzaComponent name='Сырный цыпленок' />
+          <PizzaComponent name='Пепперони' />
+          <PizzaComponent name='React пицца' />
+          <PizzaComponent name='Мясная' />
+          <PizzaComponent name='Маргарита' />
+        </div>
       </div>
     </div>
   );

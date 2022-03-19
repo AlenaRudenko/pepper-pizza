@@ -1,12 +1,95 @@
 .pizza__container {
   width: 280px;
-  height: 300px;
-  border: 1px solid black;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.pizza__content {
+  margin-bottom: 22px;
+}
+.pizza__priseAndBasket {
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+}
+/*choises of pizza  */
+.discription__container {
+  width: 280px;
+  height: 85px;
+  border-radius: 10px;
+  background-color: #f3f3f3;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.discription__pizza {
+  margin-top: 4px;
+  width: 131px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: white; */
+  border-radius: 5px;
+}
+/* effects choises */
+.discription__pizza:hover {
+  background-color: white;
+  box-shadow: 0px 2px 4px 0px #0000000a;
+  cursor: pointer;
+}
+.discription__width {
+  margin-bottom: 4px;
+  border-radius: 5px;
+  width: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* add and count */
+.pizzaBacket__container {
+  margin-top: 17px;
+  min-width: 151px;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 30px;
+  border: 1px solid #eb5a1e;
+  font-size: 16px;
+  font-weight: 700;
+  color: #eb5a1e;
+}
+.pizzaBacket__container:hover {
+  background-color: #eb5a1e;
+  color: white;
+  cursor: pointer;
+}
+/* Count of pizzas */
+.count__container {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-weight: 700;
+  font-size: 13px;
+  color: white;
+  border-radius: 50%;
+  background-color: #eb5a1e;
 }
-.pizza__container img {
-  width: 100%;
-  height: 100%;
+/* prise of pizza */
+.prise__container {
+  font-weight: 700;
+  margin-top: 17px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }

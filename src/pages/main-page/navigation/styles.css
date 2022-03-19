@@ -1,12 +1,22 @@
+.navigation__container {
+  display: flex;
+  width: 100%;
+  height: 46px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.navigation__block {
+  display: flex;
+}
+/* component navbutton */
 .NavButton__container {
   background-color: #f9f9f9;
-  padding: 13px;
   border-radius: 20px;
-  margin-right: 9px;
-  min-width: 70px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  min-width: 70px;
+  padding: 10px;
 }
 .NavButton__container span {
   font-size: 16px;
@@ -20,9 +30,43 @@
 .NavButton__container:hover {
   color: white;
   background-color: black;
+  cursor: pointer;
 }
-.navigation__container {
-  margin-top: 20px;
+/* sort */
+.sort__container {
+  width: 270px;
+}
+.sort__choise {
+  margin-left: 8px;
+  color: #fe5f1e;
+  font-weight: 400;
+  border-bottom: 1px dotted #fe5f1e;
+  cursor: pointer;
+}
+.sort__list {
   display: flex;
   justify-content: flex-start;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+}
+.sort__selects {
+  position: absolute;
+  top: 130%;
+  left: 40%;
+  box-shadow: 0px 5px 15px 0px #00000017;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.sort__select {
+  width: 151px;
+  display: flex;
+  align-items: center;
+  padding: 10px 22px;
+}
+.sort__select:hover {
+  background: #fe5f1e0d;
+  color: #fe5f1e;
+  font-weight: 700;
 }
