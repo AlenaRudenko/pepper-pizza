@@ -1,4 +1,4 @@
-import { IState } from "./../store/interfaces";
+import { IStore } from "./../store/interfaces";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 
-export const useTypedSelector: TypedUseSelectorHook<IState> = useSelector;
+export const useTypedSelector: TypedUseSelectorHook<IStore> = useSelector;

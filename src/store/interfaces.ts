@@ -1,5 +1,5 @@
 import { IRootState } from "./root-reducer/interfaces";
 
-export interface IState {
+export interface IStore {
   root: IRootState;
 }

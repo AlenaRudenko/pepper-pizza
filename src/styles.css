@@ -1,17 +1,18 @@
 .app {
-  height: 200vh;
+  height: 100%;
   max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #ffdf8c;
+  padding: 20px;
 }
 .app__container {
-  width: 95%;
+  width: 100%;
   height: 95%;
   background-color: white;
   border-radius: 10px;
-  padding: 0px 67px;
+  padding: 0px 20px;
 }
 .app__title {
   margin: 32px 0px;
@@ -101,7 +102,7 @@ select {
 }
 /* pizzas container */
 .content__container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
