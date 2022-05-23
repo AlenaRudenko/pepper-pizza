@@ -1,22 +1,21 @@
-import axios from "axios";
 import React from "react";
 
-import { IPizza } from "./models/pizza";
-import { PizzaComponent } from "./pages/main-page/content/PizzaComponent";
+import PizzaComponent from "./pages/main-page/content/PizzaComponent";
 import { Header } from "./pages/main-page/header/Header";
 import { NavigationComponent } from "./pages/main-page/navigation/NavigationComponent";
 import { Api } from "./services/api";
-import { IStore } from "./store/interfaces";
+
 import "./styles.css";
 import { connect } from "react-redux";
-import { setProducts } from "./store/root-reducer/root-actions";
+import { IMainPage } from "./store/mainPageReducer/interfaces";
+import { setProducts } from "./store/mainPageReducer/mainPageActionCreators";
 
 interface IState {
   isLoading: boolean;
 }
 interface IProps {
-  products: Array<IPizza>;
-  setProducts: typeof setProducts;
+  pizzas: IMainPage["products"];
+  setProducts: (value: any) => void;
 }
 
 class MainComponent extends React.Component<IProps, IState> {
@@ -47,11 +46,12 @@ class MainComponent extends React.Component<IProps, IState> {
           <span>loading</span>
         ) : (
           <div className='content__container'>
-            {this.props.products.map((item) => (
+            {this.props.pizzas.map((item) => (
               <PizzaComponent
                 name={item.title}
                 img={item.img}
                 price={item.price}
+                id={item.id}
               />
             ))}
           </div>
@@ -60,11 +60,9 @@ class MainComponent extends React.Component<IProps, IState> {
     );
   }
 }
-const mapStateToProps = (state: IStore) => {
+const mapStateToProps = (state: IMainPage) => {
   return {
-    products: state.root.products,
+    pizzas: state.products,
   };
 };
-export const Main = connect(mapStateToProps, { setProducts })(
-  MainComponent
-);
+export const Main = connect(mapStateToProps, { setProducts })(MainComponent);

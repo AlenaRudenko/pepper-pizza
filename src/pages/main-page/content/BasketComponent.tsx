@@ -1,11 +1,23 @@
-import CountComponent from "./CountComponent";
+import { FC, useState } from "react";
+import { CountComponent } from "./CountComponent";
 import "./styles.css";
 
-export default function BasketComponent() {
+interface IProps {
+  choosePizza: () => void;
+}
+
+export const BasketComponent: FC<IProps> = ({ choosePizza }) => {
   return (
-    <div className='pizzaBacket__container'>
+    <div
+      className={`pizzaBacket__container ${
+        "" ? "pizzaBacket__container--active" : ""
+      }`}
+      onClick={() => {
+        choosePizza();
+      }}
+    >
       <span>+ Добавить</span>
-      <CountComponent />
+      {/* <CountComponent countPizza={count} /> */}
     </div>
   );
-}
+};

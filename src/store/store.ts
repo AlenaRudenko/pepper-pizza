@@ -1,6 +1,7 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
-import rootReducer from "./root-reducer/root-reducer";
+
 import logger from "redux-logger";
+import { mainPageReducer } from "./mainPageReducer/mainPageReducer";
 
 declare global {
   interface Window {
@@ -9,9 +10,26 @@ declare global {
 }
 
 const reducers = combineReducers({
-  root: rootReducer,
+  mainPage: mainPageReducer,
 });
-
+export interface IStore {
+  mainPage: ReturnType<typeof mainPageReducer>;
+}
+//добавить типизацию в интерфейс сверху для нового редюсера
 export const store = createStore(reducers, applyMiddleware(logger));
 
 window.store = store;
+
+type Maybe<V, R = unknown, X = unknown, Y = unknown> = V | R | null;
+
+const a: Maybe<string, number> = 1;
+const b: Maybe<number> = 1;
+
+type Result = ReturnType<typeof test>;
+
+const test = () => ({
+  a: "sdsd",
+  b: {
+    c: [1, 2, 3],
+  },
+});

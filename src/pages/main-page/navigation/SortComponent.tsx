@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../../../hooks/typed-selector";
-import { toggleSortVisibles } from "../../../store/root-reducer/root-actions";
+import { toggleSortVisibles } from "../../../store/mainPageReducer/mainPageActionCreators";
+
 import "./styles.css";
 
 export default function SortComponent() {
   const dispatch = useDispatch();
-  const isActive = useTypedSelector(({ root }) => root.isActive);
+  const isActive = useTypedSelector(({ mainPage }) => mainPage.isActive);
   return (
     <div className='sort__container'>
       <div className='sort__list'>

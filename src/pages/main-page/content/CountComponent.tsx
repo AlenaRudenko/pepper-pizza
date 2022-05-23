@@ -1,5 +1,12 @@
+import { FC } from "react";
 import "./styles.css";
 
-export default function CountComponent() {
-  return <div className='count__container'>2</div>;
+interface IProps {
+  countPizza: number;
 }
+
+export const CountComponent: FC<IProps> = ({ countPizza }) => {
+  return countPizza >= 1 ? (
+    <div className='count__container'>{countPizza}</div>
+  ) : null;
+};

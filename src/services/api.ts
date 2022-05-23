@@ -1,5 +1,5 @@
-import { IPizza } from "./../models/pizza";
 import axios from "axios";
+import { IPizza } from "../store/mainPageReducer/interfaces";
 
 class AppApi {
   fakeRequest(delay: number = 2000) {
