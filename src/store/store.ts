@@ -1,3 +1,4 @@
+import { orderPageReducer } from "./orderPageReducer/orderPageReducer";
 import { combineReducers, createStore, applyMiddleware } from "redux";
 
 import logger from "redux-logger";
@@ -11,9 +12,11 @@ declare global {
 
 const reducers = combineReducers({
   mainPage: mainPageReducer,
+  orderPage: orderPageReducer,
 });
 export interface IStore {
   mainPage: ReturnType<typeof mainPageReducer>;
+  orderPage: ReturnType<typeof orderPageReducer>;
 }
 //добавить типизацию в интерфейс сверху для нового редюсера
 export const store = createStore(reducers, applyMiddleware(logger));

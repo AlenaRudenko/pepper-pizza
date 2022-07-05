@@ -14,7 +14,9 @@ class AppApi {
     });
   }
   getProducts() {
-    return axios.get<IPizza[]>("http://192.168.0.100:3005/products");
+    return axios
+      .get<IPizza[]>("http://192.168.0.100:3005/products")
+      .catch(() => console.log("egc"));
   }
 }
 export const Api = new AppApi();

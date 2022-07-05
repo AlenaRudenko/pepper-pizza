@@ -9,6 +9,9 @@ import "./styles.css";
 import { connect } from "react-redux";
 import { IMainPage } from "./store/mainPageReducer/interfaces";
 import { setProducts } from "./store/mainPageReducer/mainPageActionCreators";
+import { IStore } from "./store/store";
+import { IOrderState } from "./store/orderPageReducer/interfaces";
+import { OrderPageComponent } from "./pages/order-page/OrderPageComponent";
 
 interface IState {
   isLoading: boolean;
@@ -16,6 +19,7 @@ interface IState {
 interface IProps {
   pizzas: IMainPage["products"];
   setProducts: (value: any) => void;
+  isActive: IOrderState["isActive"];
 }
 
 class MainComponent extends React.Component<IProps, IState> {
@@ -40,29 +44,37 @@ class MainComponent extends React.Component<IProps, IState> {
     return (
       <div className='app__container'>
         <Header />
-        <NavigationComponent />
-        <h2 className='app__title'>Все пиццы</h2>
-        {this.state.isLoading ? (
-          <span>loading</span>
+
+        {this.props.isActive ? (
+          <OrderPageComponent />
         ) : (
-          <div className='content__container'>
-            {this.props.pizzas.map((item) => (
-              <PizzaComponent
-                name={item.title}
-                img={item.img}
-                price={item.price}
-                id={item.id}
-              />
-            ))}
+          <div>
+            <NavigationComponent />
+            <h2 className='app__title'>Все пиццы</h2>
+            {this.state.isLoading ? (
+              <span>loading</span>
+            ) : (
+              <div className='content__container'>
+                {this.props.pizzas.map((item) => (
+                  <PizzaComponent
+                    name={item.title}
+                    img={item.img}
+                    price={item.price}
+                    id={item.id}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
     );
   }
 }
-const mapStateToProps = (state: IMainPage) => {
+const mapStateToProps = (state: IStore) => {
   return {
-    pizzas: state.products,
+    pizzas: state.mainPage.products,
+    isActive: state.orderPage.isActive,
   };
 };
 export const Main = connect(mapStateToProps, { setProducts })(MainComponent);
