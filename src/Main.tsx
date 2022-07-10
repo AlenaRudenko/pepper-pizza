@@ -3,15 +3,15 @@ import React from "react";
 import PizzaComponent from "./pages/main-page/content/PizzaComponent";
 import { Header } from "./pages/main-page/header/Header";
 import { NavigationComponent } from "./pages/main-page/navigation/NavigationComponent";
-import { Api } from "./services/api";
 
 import "./styles.css";
 import { connect } from "react-redux";
-import { IMainPage } from "./store/mainPageReducer/interfaces";
+import { IMainPage, IPizza } from "./store/mainPageReducer/interfaces";
 import { setProducts } from "./store/mainPageReducer/mainPageActionCreators";
 import { IStore } from "./store/store";
 import { IOrderState } from "./store/orderPageReducer/interfaces";
 import { OrderPageComponent } from "./pages/order-page/OrderPageComponent";
+import axios from "axios";
 
 interface IState {
   isLoading: boolean;
@@ -30,14 +30,10 @@ class MainComponent extends React.Component<IProps, IState> {
     };
   }
   async componentDidMount() {
-    console.log(1);
-
-    console.log(2);
-    // console.log(response);
-    const res = await Api.getProducts();
-    console.log(res.data);
-    this.setState({ isLoading: false });
-    this.props.setProducts(res.data);
+    await axios
+      .get<IPizza[]>("https://626d16545267c14d5677d9c2.mockapi.io/items")
+      .then((response) => this.props.setProducts(response.data));
+    this.setState({ isLoading: !this.state.isLoading });
   }
 
   render() {
@@ -57,8 +53,8 @@ class MainComponent extends React.Component<IProps, IState> {
               <div className='content__container'>
                 {this.props.pizzas.map((item) => (
                   <PizzaComponent
-                    name={item.title}
-                    img={item.img}
+                    title={item.title}
+                    imageUrl={item.imageUrl}
                     price={item.price}
                     id={item.id}
                   />

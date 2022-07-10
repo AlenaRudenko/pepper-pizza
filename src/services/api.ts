@@ -15,8 +15,8 @@ class AppApi {
   }
   getProducts() {
     return axios
-      .get<IPizza[]>("http://192.168.0.100:3005/products")
-      .catch(() => console.log("egc"));
+      .get<IPizza[]>("https://626d16545267c14d5677d9c2.mockapi.io/items")
+      .then((response) => response.data);
   }
 }
 export const Api = new AppApi();

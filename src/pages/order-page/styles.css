@@ -1,3 +1,16 @@
 .orderPage {
-  height: 100vh;
+  height: 100%;
+}
+.empty__pizza-container {
+  width: 250px;
+}
+.empty__pizza-container span {
+  margin: 20px 0px;
+}
+.orderPage__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

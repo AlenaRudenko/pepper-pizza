@@ -8,8 +8,8 @@ import { PriseComponent } from "./PriseComponent";
 import "./styles.css";
 
 interface IProps {
-  name: string;
-  img: string;
+  title: string;
+  imageUrl: string;
   price: IPizza["price"];
   id: string;
   setBasket: typeof setBasket;
@@ -41,21 +41,20 @@ class PizzaComponent extends Component<IProps, IState> {
   choosePizza = () => {
     this.props.setBasket({
       id: this.props.id,
-      name: this.props.name,
-      img: this.props.img,
+      title: this.props.title,
+      imageUrl: this.props.imageUrl,
       price: this.props.price,
-      size: +this.state.size,
+      size: this.state.size,
       variant: this.state.variant,
-      count: 1,
     });
   };
   render() {
     return (
       <div className='pizza__cont'>
         <div className='pizza__container'>
-          <img src={this.props.img} alt='' />
+          <img src={this.props.imageUrl} alt='' />
           <div className='pizza__content'>
-            <h3>{this.props.name}</h3>
+            <h3>{this.props.title}</h3>
           </div>
           <DicriptionComponent
             currentVariant={this.state.variant}
