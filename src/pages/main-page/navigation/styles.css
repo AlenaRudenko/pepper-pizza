@@ -64,6 +64,7 @@
   display: flex;
   align-items: center;
   padding: 5px 8px;
+  transition: all 100ms linear;
 }
 .sort__select:hover {
   background: #fe5f1e0d;
