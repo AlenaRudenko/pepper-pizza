@@ -3,19 +3,20 @@ import { IAction } from "./mainPageActionCreators";
 import {
   SET_BASKET,
   SET_PRODUCTS,
+  SORT_BY_MEAT,
   SORT_BY_PRICE_HIGH,
   SORT_BY_PRICE_LOW,
   SORT_BY_RATING,
   SORT_BY_TITLE_DOWN,
   SORT_BY_TITLE_UP,
-  TOGGLE_SORT_VISIBLE,
+  TOGGLE_SORT_VISIBLE
 } from "./mainPage-actions";
 
 const INITIAL_STATE: IMainPage = {
   isActive: false,
   products: [],
   basket: [],
-  count: 0,
+  count: 0
 };
 
 export const mainPageReducer = (
@@ -31,42 +32,49 @@ export const mainPageReducer = (
       return {
         ...state,
         basket: [...state.basket, action.payload],
-        count: state.basket.length,
+        count: state.basket.length
       };
     }
     case SORT_BY_RATING: {
       const ratingCopy = state.products.map((a) => a);
       return {
         ...state,
-        products: ratingCopy.sort((a, b) => (a.rating > b.rating ? -1 : 1)),
+        products: ratingCopy.sort((a, b) => (a.rating > b.rating ? -1 : 1))
       };
     }
     case SORT_BY_TITLE_UP: {
       const titleCopy = state.products.map((a) => a);
       return {
         ...state,
-        products: titleCopy.sort((a, b) => (a.title > b.title ? 1 : -1)),
+        products: titleCopy.sort((a, b) => (a.title > b.title ? 1 : -1))
       };
     }
     case SORT_BY_TITLE_DOWN: {
       const titleCopy = state.products.map((a) => a);
       return {
         ...state,
-        products: titleCopy.sort((a, b) => (a.title > b.title ? -1 : 1)),
+        products: titleCopy.sort((a, b) => (a.title > b.title ? -1 : 1))
       };
     }
     case SORT_BY_PRICE_HIGH: {
       const priceCopy = state.products.map((a) => a);
       return {
         ...state,
-        products: priceCopy.sort((a, b) => (a.price > b.price ? 1 : -1)),
+        products: priceCopy.sort((a, b) => (a.price > b.price ? 1 : -1))
       };
     }
     case SORT_BY_PRICE_LOW: {
       const priceCopy = state.products.map((a) => a);
       return {
         ...state,
-        products: priceCopy.sort((a, b) => (a.price > b.price ? -1 : 1)),
+        products: priceCopy.sort((a, b) => (a.price > b.price ? -1 : 1))
+      };
+    }
+    case SORT_BY_MEAT: {
+      const meatCopy = state.products.map((a) => a);
+      return {
+        ...state,
+        products: meatCopy.filter((a) => a.types)
       };
     }
     default:

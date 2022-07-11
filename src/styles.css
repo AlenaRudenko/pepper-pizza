@@ -102,8 +102,14 @@ select {
   margin: 32px 0px 32px 0px;
 }
 /* pizzas container */
-.content__container {
+/* .content__container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+} */
+.content__container {
+  display: grid;
+  row-gap: 20px;
+  column-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }

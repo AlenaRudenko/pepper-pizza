@@ -6,3 +6,6 @@ export const SORT_BY_TITLE_UP = "SORT_BY_TITLE_UP";
 export const SORT_BY_TITLE_DOWN = "SORT_BY_TITLE_DOWN";
 export const SORT_BY_PRICE_HIGH = "SORT_BY_PRICE_HIGH";
 export const SORT_BY_PRICE_LOW = "SORT_BY_PRICE_LOW";
+export const SORT_BY_MEAT = "SORT_BY_MEAT";
+export const SORT_BY_VEGAN = "SORT_BY_VEGAN";
+export const SORT_BY_ALL = "SORT_BY_ALL";

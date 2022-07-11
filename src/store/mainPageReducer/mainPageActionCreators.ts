@@ -3,12 +3,15 @@ import { IBasketPizza, IPizza } from "./interfaces";
 import {
   SET_BASKET,
   SET_PRODUCTS,
+  SORT_BY_ALL,
+  SORT_BY_MEAT,
   SORT_BY_PRICE_HIGH,
   SORT_BY_PRICE_LOW,
   SORT_BY_RATING,
   SORT_BY_TITLE_DOWN,
   SORT_BY_TITLE_UP,
-  TOGGLE_SORT_VISIBLE,
+  SORT_BY_VEGAN,
+  TOGGLE_SORT_VISIBLE
 } from "./mainPage-actions";
 
 export interface IAction {
@@ -17,45 +20,60 @@ export interface IAction {
 }
 export const toggleSortVisible = (value: boolean) => ({
   type: TOGGLE_SORT_VISIBLE,
-  payload: value,
+  payload: value
 });
 
 export const toggleSortVisibles = () => ({
-  type: TOGGLE_SORT_VISIBLE,
+  type: TOGGLE_SORT_VISIBLE
 });
 
 export const setProducts = (pizzas: IPizza[]) => ({
   type: SET_PRODUCTS,
-  payload: pizzas,
+  payload: pizzas
 });
 export const setBasket = (pizza: IBasketPizza) => {
   return {
     type: SET_BASKET,
-    payload: pizza,
+    payload: pizza
   };
 };
 export const sortByRating = () => {
   return {
-    type: SORT_BY_RATING,
+    type: SORT_BY_RATING
   };
 };
 export const sortByTitleUp = () => {
   return {
-    type: SORT_BY_TITLE_UP,
+    type: SORT_BY_TITLE_UP
   };
 };
 export const sortByTitleDown = () => {
   return {
-    type: SORT_BY_TITLE_DOWN,
+    type: SORT_BY_TITLE_DOWN
   };
 };
 export const sortByPriceHigh = () => {
   return {
-    type: SORT_BY_PRICE_HIGH,
+    type: SORT_BY_PRICE_HIGH
   };
 };
 export const sortByPriceLow = () => {
   return {
-    type: SORT_BY_PRICE_LOW,
+    type: SORT_BY_PRICE_LOW
+  };
+};
+export const sortByMeat = () => {
+  return {
+    type: SORT_BY_MEAT
+  };
+};
+export const sortByVegan = () => {
+  return {
+    type: SORT_BY_VEGAN
+  };
+};
+export const sortByAll = () => {
+  return {
+    type: SORT_BY_ALL
   };
 };
