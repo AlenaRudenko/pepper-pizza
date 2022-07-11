@@ -2,10 +2,6 @@ import React from "react";
 
 import PizzaComponent from "./pages/main-page/content/PizzaComponent";
 import { Header } from "./pages/main-page/header/Header";
-import {
-  NavigationComponent,
-  NavigationComponentContainer
-} from "./pages/main-page/navigation/NavigationComponent";
 
 import "./styles.css";
 import { connect } from "react-redux";
@@ -15,6 +11,7 @@ import { IStore } from "./store/store";
 import { IOrderState } from "./store/orderPageReducer/interfaces";
 import { OrderPageComponent } from "./pages/order-page/OrderPageComponent";
 import axios from "axios";
+import { NavigationComponentContainer } from "./pages/main-page/navigation/NavigationComponentContainer";
 
 interface IState {
   isLoading: boolean;
