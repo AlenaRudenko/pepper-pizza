@@ -74,7 +74,7 @@ export const mainPageReducer = (
       const meatCopy = state.products.map((a) => a);
       return {
         ...state,
-        products: meatCopy.filter((a) => a.title === "Маргарита")
+        products: meatCopy.sort((a, b) => (a.price > b.price ? -1 : 1))
       };
     }
     default:
