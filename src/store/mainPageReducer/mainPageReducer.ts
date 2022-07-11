@@ -74,7 +74,7 @@ export const mainPageReducer = (
       const meatCopy = state.products.map((a) => a);
       return {
         ...state,
-        products: meatCopy.filter((a) => a.types)
+        products: meatCopy.filter((a) => a.title === "Маргарита")
       };
     }
     default:

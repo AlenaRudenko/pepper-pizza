@@ -2,7 +2,10 @@ import React from "react";
 
 import PizzaComponent from "./pages/main-page/content/PizzaComponent";
 import { Header } from "./pages/main-page/header/Header";
-import { NavigationComponent } from "./pages/main-page/navigation/NavigationComponent";
+import {
+  NavigationComponent,
+  NavigationComponentContainer
+} from "./pages/main-page/navigation/NavigationComponent";
 
 import "./styles.css";
 import { connect } from "react-redux";
@@ -26,7 +29,7 @@ class MainComponent extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      isLoading: true,
+      isLoading: true
     };
   }
   async componentDidMount() {
@@ -38,19 +41,19 @@ class MainComponent extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <div className='app__container'>
+      <div className="app__container">
         <Header />
 
         {this.props.isActive ? (
           <OrderPageComponent />
         ) : (
           <div>
-            <NavigationComponent />
-            <h2 className='app__title'>Все пиццы</h2>
+            <NavigationComponentContainer />
+            <h2 className="app__title">Все пиццы</h2>
             {this.state.isLoading ? (
               <span>loading</span>
             ) : (
-              <div className='content__container'>
+              <div className="content__container">
                 {this.props.pizzas.map((item) => (
                   <PizzaComponent
                     title={item.title}
@@ -70,7 +73,7 @@ class MainComponent extends React.Component<IProps, IState> {
 const mapStateToProps = (state: IStore) => {
   return {
     pizzas: state.mainPage.products,
-    isActive: state.orderPage.isActive,
+    isActive: state.orderPage.isActive
   };
 };
 export const Main = connect(mapStateToProps, { setProducts })(MainComponent);
