@@ -1,7 +1,8 @@
 import React from "react";
+import { NavButton } from "../../../components/NavButton";
 import {
   INavigationDispatchProps,
-  INavigationStoreProps,
+  INavigationStoreProps
 } from "./NavigationComponentContainer";
 
 import SortComponent from "./SortComponent";
@@ -15,15 +16,15 @@ export class NavigationComponent extends React.Component<IProps> {
     2: "Вегетарианские",
     3: "Гриль",
     4: "Острые",
-    5: "Закрытые",
+    5: "Закрытые"
   };
 
   render() {
     return (
-      <div className='navigation__container'>
-        <div className='navigation__block'>
+      <div className="navigation__container">
+        <div className="navigation__block">
           {this.props.categories.map((a) => (
-            <button>{this.types[a]}</button>
+            <NavButton name={this.types[a]} category={a} />
           ))}
         </div>
         <SortComponent />

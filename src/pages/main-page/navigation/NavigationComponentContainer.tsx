@@ -4,18 +4,17 @@ import { IStore } from "../../../store/store";
 import { NavigationComponent } from "./NavigationComponent";
 import "./styles.css";
 
-export type INavigationStoreProps = ReturnType<typeof mapStateToProps>;
-export type INavigationDispatchProps = typeof mapDispatchToProps;
-
 const mapStateToProps = (state: IStore) => ({
-  categories: state.mainPage.categories,
+  categories: state.mainPage.categories
 });
 
 const mapDispatchToProps = {
-  sortByCategory,
+  sortByCategory
 };
 
 export const NavigationComponentContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(NavigationComponent);
+export type INavigationStoreProps = ReturnType<typeof mapStateToProps>;
+export type INavigationDispatchProps = typeof mapDispatchToProps;
