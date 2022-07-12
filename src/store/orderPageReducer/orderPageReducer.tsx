@@ -3,7 +3,7 @@ import { IOrderState } from "./interfaces";
 import { OPEN_ORDER_PAGE } from "./orderPage-actions";
 
 const INITIAL_STATE: IOrderState = {
-  isActive: false,
+  isActive: false
 };
 
 export const orderPageReducer = (state = INITIAL_STATE, action: IAction) => {
@@ -11,7 +11,7 @@ export const orderPageReducer = (state = INITIAL_STATE, action: IAction) => {
     case OPEN_ORDER_PAGE: {
       return {
         ...state,
-        isActive: !state.isActive,
+        isActive: !state.isActive
       };
     }
     default:

@@ -37,7 +37,7 @@ export const mainPageReducer = (
       return {
         ...state,
         basket: [...state.basket, action.payload],
-        count: state.basket.length
+        count: state.count + 1
       };
     }
     case SORT_BY_RATING: {
