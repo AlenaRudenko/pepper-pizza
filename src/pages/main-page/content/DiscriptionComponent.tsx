@@ -2,8 +2,8 @@ import { FC } from "react";
 import "./styles.css";
 
 interface IProps {
-  changeVariant: (value: string) => void;
-  changeSize: (value: string) => void;
+  changeVariant: (value: string) => any;
+  changeSize: (value: string) => any;
   variants: string[];
   sizes: string[];
   currentVariant: string;
@@ -26,9 +26,7 @@ export const DicriptionComponent: FC<IProps> = ({
             className={`discription__pizza ${
               currentVariant === item ? "discription__pizza--current" : ""
             }  `}
-            onClick={() => {
-              changeVariant(item);
-            }}
+            onClick={() => changeVariant(item)}
           >
             {item}
           </div>
@@ -39,9 +37,7 @@ export const DicriptionComponent: FC<IProps> = ({
           className={`discription__pizza discription__width ${
             currentSize === item ? "discription__pizza--current" : ""
           }`}
-          onClick={() => {
-            changeSize(item);
-          }}
+          onClick={() => changeSize(item)}
         >
           {item}см
         </div>

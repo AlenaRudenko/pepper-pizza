@@ -1,23 +1,23 @@
-import { FC, useState } from "react";
+import { FC } from "react";
+
 import { CountComponent } from "./CountComponent";
 import "./styles.css";
 
 interface IProps {
-  choosePizza: () => void;
+  choosePizza: () => any;
+  count: number;
 }
 
-export const BasketComponent: FC<IProps> = ({ choosePizza }) => {
+export const BasketComponent: FC<IProps> = ({ choosePizza, count }) => {
   return (
     <div
       className={`pizzaBacket__container ${
         "" ? "pizzaBacket__container--active" : ""
       }`}
-      onClick={() => {
-        choosePizza();
-      }}
+      onClick={() => choosePizza()}
     >
       <span>+ Добавить</span>
-      {/* <CountComponent countPizza={count} /> */}
+      <CountComponent count={count} />
     </div>
   );
 };

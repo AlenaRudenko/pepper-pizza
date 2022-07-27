@@ -1,17 +1,8 @@
 export interface IMainPage {
   isActive: boolean;
   products: IPizza[];
-  basket: IBasketPizza[];
   count: number;
   categories: number[];
-}
-export interface IBasketPizza {
-  id: string;
-  imageUrl: string;
-  price: number;
-  size: string;
-  title: string;
-  variant: string;
 }
 
 export interface IPizza {

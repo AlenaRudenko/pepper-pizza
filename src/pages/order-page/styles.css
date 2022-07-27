@@ -14,3 +14,35 @@
   justify-content: center;
   flex-direction: column;
 }
+.order__pic {
+  width: 200px;
+  margin-right: 40px;
+}
+.order__container {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+.order__discription {
+  display: flex;
+  flex-direction: column;
+}
+.order__group {
+  display: flex;
+  align-items: center;
+}
+.delete__button {
+  background-color: #fe5f1e;
+  border: 1px solid #fe5f1e;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  transition: all 200ms linear;
+}
+.delete__button:hover {
+  cursor: pointer;
+  box-shadow: 0px 10px 10px 0px #0000000a;
+}

@@ -1,7 +1,6 @@
-import { IBasketPizza, IPizza } from "./interfaces";
+import { IPizza } from "./interfaces";
 
 import {
-  SET_BASKET,
   SET_PRODUCTS,
   SORT_BY_CATEGORY,
   SORT_BY_PRICE_HIGH,
@@ -32,11 +31,7 @@ export const setProducts = (pizzas: IPizza[]) =>
     type: SET_PRODUCTS,
     payload: pizzas,
   } as const);
-export const setBasket = (pizza: IBasketPizza) =>
-  ({
-    type: SET_BASKET,
-    payload: pizza,
-  } as const);
+
 export const sortByRating = () =>
   ({
     type: SORT_BY_RATING,
@@ -69,7 +64,6 @@ export type TMainPageActions =
   | ReturnType<typeof sortByTitleDown>
   | ReturnType<typeof sortByTitleUp>
   | ReturnType<typeof sortByRating>
-  | ReturnType<typeof setBasket>
   | ReturnType<typeof setProducts>
   | ReturnType<typeof toggleSortVisibles>
   | ReturnType<typeof toggleSortVisible>

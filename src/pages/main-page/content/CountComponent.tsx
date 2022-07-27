@@ -2,11 +2,9 @@ import { FC } from "react";
 import "./styles.css";
 
 interface IProps {
-  countPizza: number;
+  count: number;
 }
 
-export const CountComponent: FC<IProps> = ({ countPizza }) => {
-  return countPizza >= 1 ? (
-    <div className='count__container'>{countPizza}</div>
-  ) : null;
+export const CountComponent: FC<IProps> = ({ count }) => {
+  return count >= 1 ? <div className='count__container'>{count}</div> : null;
 };

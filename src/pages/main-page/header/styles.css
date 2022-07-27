@@ -46,22 +46,12 @@
 .orderButton__container {
   width: 100%;
   height: 100%;
-  padding: 0px 23px 0px 23px;
+  padding: 0px 15px 0px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-.orderButton__orders {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 50%;
-}
-.orderButton__bracket {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-right: 5px;
-  margin-left: 12px;
+.price {
+  margin-right: 20px;
 }

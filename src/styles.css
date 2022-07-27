@@ -24,7 +24,11 @@
 *::after {
   box-sizing: border-box;
 }
-
+svg path {
+  stroke: inherit;
+  stroke-width: inherit;
+  fill: inherit;
+}
 /* Убираем внутренние отступы */
 ul[class],
 ol[class] {
