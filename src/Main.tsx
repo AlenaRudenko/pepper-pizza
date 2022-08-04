@@ -12,6 +12,8 @@ import { IOrderState } from "./store/orderPageReducer/interfaces";
 import { OrderPageComponent } from "./pages/order-page/OrderPageComponent";
 import axios from "axios";
 import { NavigationComponentContainer } from "./pages/main-page/navigation/NavigationComponentContainer";
+import { Route, Routes } from "react-router-dom";
+import { MainPage } from "./pages/main-page/content/MainPage";
 
 interface IState {
   isLoading: boolean;
@@ -26,7 +28,7 @@ class MainComponent extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      isLoading: true,
+      isLoading: true
     };
   }
   async componentDidMount() {
@@ -38,31 +40,32 @@ class MainComponent extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <div className='app__container'>
+      <div className="app__container">
         <Header />
-
-        {this.props.isActive ? (
-          <OrderPageComponent />
-        ) : (
-          <div>
-            <NavigationComponentContainer />
-            <h2 className='app__title'>Все пиццы</h2>
-            {this.state.isLoading ? (
-              <span>loading</span>
-            ) : (
-              <div className='content__container'>
-                {this.props.pizzas.map((item) => (
-                  <PizzaComponentContainer
-                    title={item.title}
-                    imageUrl={item.imageUrl}
-                    price={item.price}
-                    id={item.id}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        )}
+        <Routes>
+          {this.props.isActive ? (
+            <Route path="/basket" element={<OrderPageComponent />} />
+          ) : (
+            <Route
+              path="/"
+              element={
+                <MainPage
+                  isLoading={this.state.isLoading}
+                  pizzas={this.props.pizzas}
+                />
+              }
+            />
+          )}
+          <Route
+            path="/"
+            element={
+              <MainPage
+                isLoading={this.state.isLoading}
+                pizzas={this.props.pizzas}
+              />
+            }
+          />
+        </Routes>
       </div>
     );
   }
@@ -70,7 +73,7 @@ class MainComponent extends React.Component<IProps, IState> {
 const mapStateToProps = (state: IStore) => {
   return {
     pizzas: state.mainPage.products,
-    isActive: state.orderPage.isActive,
+    isActive: state.orderPage.isActive
   };
 };
 export const Main = connect(mapStateToProps, { setProducts })(MainComponent);
