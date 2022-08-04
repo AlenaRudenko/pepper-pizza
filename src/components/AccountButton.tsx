@@ -1,3 +1,5 @@
+import "./../pages/main-page/header/styles.css";
+
 export const AccountButton = () => {
-  return <div></div>;
+  return <div className="account-button">Войти</div>;
 };

@@ -7,7 +7,7 @@ import {
   sortByRating,
   sortByTitleDown,
   sortByTitleUp,
-  toggleSortVisibles,
+  toggleSortVisibles
 } from "../../../store/mainPageReducer/mainPageActionCreators";
 
 import "./styles.css";
@@ -36,46 +36,45 @@ export default function SortComponent() {
     }
   };
   return (
-    <div className='sort__container'>
-      <div className='sort__list'>
+    <div className="sort__container">
+      <div className="sort__list">
         <span>Сортировать по:</span>
         <span
-          className='sort__choise'
+          className="sort__choise"
           onClick={() => dispatch(toggleSortVisibles())}
         >
           Популярности
         </span>
-        {isActive && (
-          <ul className='sort__selects'>
-            <li
-              className='sort__select'
-              onClick={() => {
-                dispatch(sortByRating());
-                dispatch(toggleSortVisibles());
-              }}
-            >
-              Популярности
-            </li>
-            <li
-              className='sort__select'
-              onClick={() => {
-                dispatch(toggleSortVisibles());
-                changeSortPrice();
-              }}
-            >
-              {price ? `Цене ⇧` : `Цене ⇩`}
-            </li>
-            <li
-              className='sort__select'
-              onClick={() => {
-                dispatch(toggleSortVisibles());
-                changeSortTitle();
-              }}
-            >
-              {title ? "Алфавиту Ая" : "Алфавиту Яа"}
-            </li>
-          </ul>
-        )}
+
+        <ul className={isActive ? "sort__selects" : "sort__selects--hidden"}>
+          <li
+            className="sort__select"
+            onClick={() => {
+              dispatch(sortByRating());
+              dispatch(toggleSortVisibles());
+            }}
+          >
+            Популярности
+          </li>
+          <li
+            className="sort__select"
+            onClick={() => {
+              dispatch(toggleSortVisibles());
+              changeSortPrice();
+            }}
+          >
+            {price ? `Цене ⇧` : `Цене ⇩`}
+          </li>
+          <li
+            className="sort__select"
+            onClick={() => {
+              dispatch(toggleSortVisibles());
+              changeSortTitle();
+            }}
+          >
+            {title ? "Алфавиту Ая" : "Алфавиту Яа"}
+          </li>
+        </ul>
       </div>
     </div>
   );

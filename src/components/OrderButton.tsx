@@ -6,9 +6,7 @@ import "./../pages/main-page/header/styles.css";
 
 export const OrderButton = () => {
   const dispatch = useDispatch();
-  const isActiveButton = useTypedSelector(
-    ({ orderPage }) => orderPage.isActive
-  );
+  const isActive = useTypedSelector(({ orderPage }) => orderPage.isActive);
   const countPizzas = useTypedSelector(({ orderPage }) => orderPage.basket);
   const fullPrice = countPizzas.reduce(function (sum, item) {
     return sum + item.price;
@@ -19,7 +17,7 @@ export const OrderButton = () => {
 
   return (
     <div className="orderButton" onClick={() => newF()}>
-      {isActiveButton ? (
+      {isActive ? (
         <NavLink to="/" className={"Link-decoration"}>
           <div className="orderButton__container">вернуться к пиццам</div>
         </NavLink>

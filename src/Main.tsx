@@ -14,6 +14,7 @@ import axios from "axios";
 import { NavigationComponentContainer } from "./pages/main-page/navigation/NavigationComponentContainer";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main-page/content/MainPage";
+import { AccountPage } from "./pages/account-page/AccountPage";
 
 interface IState {
   isLoading: boolean;
@@ -25,11 +26,25 @@ interface IProps {
 }
 
 class MainComponent extends React.Component<IProps, IState> {
+  routes: { path: string; element: JSX.Element }[];
   constructor(props: IProps) {
     super(props);
     this.state = {
       isLoading: true
     };
+    this.routes = [
+      {
+        path: "/",
+        element: (
+          <MainPage
+            isLoading={this.state.isLoading}
+            pizzas={this.props.pizzas}
+          />
+        )
+      },
+      { path: "/basket", element: <OrderPageComponent /> },
+      { path: "/account", element: <AccountPage /> }
+    ];
   }
   async componentDidMount() {
     await axios
