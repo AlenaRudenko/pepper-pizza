@@ -12,7 +12,7 @@ import { IOrderState } from "./store/orderPageReducer/interfaces";
 import { OrderPageComponent } from "./pages/order-page/OrderPageComponent";
 import axios from "axios";
 import { NavigationComponentContainer } from "./pages/main-page/navigation/NavigationComponentContainer";
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main-page/content/MainPage";
 
 interface IState {
@@ -56,16 +56,8 @@ class MainComponent extends React.Component<IProps, IState> {
               }
             />
           )}
-          <Route
-            path="/"
-            element={
-              <MainPage
-                isLoading={this.state.isLoading}
-                pizzas={this.props.pizzas}
-              />
-            }
-          />
         </Routes>
+        <Outlet />
       </div>
     );
   }
