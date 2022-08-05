@@ -58,9 +58,7 @@ class MainComponent extends React.Component<IProps, IState> {
       <div className="app__container">
         <Header />
         <Routes>
-          {this.props.isActive ? (
-            <Route path="/basket" element={<OrderPageComponent />} />
-          ) : (
+          {!this.props.isActive ? (
             <Route
               path="/"
               element={
@@ -70,6 +68,8 @@ class MainComponent extends React.Component<IProps, IState> {
                 />
               }
             />
+          ) : (
+            <Route path="/basket" element={<OrderPageComponent />} />
           )}
         </Routes>
         <Outlet />

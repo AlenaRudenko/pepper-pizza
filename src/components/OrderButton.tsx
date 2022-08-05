@@ -14,7 +14,9 @@ export const OrderButton = () => {
   const newF = () => {
     dispatch(openOrderPage());
   };
-
+  fetch("https://jsonplaceholder.typicode.com/posts/1")
+    .then((response) => response.json())
+    .then((json) => console.log(json));
   return (
     <div className="orderButton" onClick={() => newF()}>
       {isActive ? (
