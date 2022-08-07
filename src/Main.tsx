@@ -1,8 +1,6 @@
 import React from "react";
-
-import { PizzaComponentContainer } from "./pages/main-page/content/PizzaComponentContainer";
+import { CSSTransition } from "react-transition-group";
 import { Header } from "./pages/main-page/header/Header";
-
 import "./styles.css";
 import { connect } from "react-redux";
 import { IMainPage, IPizza } from "./store/mainPageReducer/interfaces";
@@ -11,10 +9,10 @@ import { IStore } from "./store/store";
 import { IOrderState } from "./store/orderPageReducer/interfaces";
 import { OrderPageComponent } from "./pages/order-page/OrderPageComponent";
 import axios from "axios";
-import { NavigationComponentContainer } from "./pages/main-page/navigation/NavigationComponentContainer";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main-page/content/MainPage";
 import { AccountPage } from "./pages/account-page/AccountPage";
+import { ProfilePage } from "./pages/profile-page/ProfilePage";
 
 interface IState {
   isLoading: boolean;
@@ -26,25 +24,11 @@ interface IProps {
 }
 
 class MainComponent extends React.Component<IProps, IState> {
-  routes: { path: string; element: JSX.Element }[];
   constructor(props: IProps) {
     super(props);
     this.state = {
-      isLoading: true
+      isLoading: true,
     };
-    this.routes = [
-      {
-        path: "/",
-        element: (
-          <MainPage
-            isLoading={this.state.isLoading}
-            pizzas={this.props.pizzas}
-          />
-        )
-      },
-      { path: "/basket", element: <OrderPageComponent /> },
-      { path: "/account", element: <AccountPage /> }
-    ];
   }
   async componentDidMount() {
     await axios
@@ -55,24 +39,21 @@ class MainComponent extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <div className="app__container">
+      <div className='app__container'>
         <Header />
         <Routes>
-          {!this.props.isActive ? (
-            <Route
-              path="/"
-              element={
-                <MainPage
-                  isLoading={this.state.isLoading}
-                  pizzas={this.props.pizzas}
-                />
-              }
-            />
-          ) : (
-            <Route path="/basket" element={<OrderPageComponent />} />
-          )}
+          <Route
+            path='/'
+            element={
+              <MainPage
+                isLoading={this.state.isLoading}
+                pizzas={this.props.pizzas}
+              />
+            }
+          />
+          <Route path='/basket' element={<OrderPageComponent />} />
+          <Route path='/profile' element={<ProfilePage />} />
         </Routes>
-        <Outlet />
       </div>
     );
   }
@@ -80,7 +61,7 @@ class MainComponent extends React.Component<IProps, IState> {
 const mapStateToProps = (state: IStore) => {
   return {
     pizzas: state.mainPage.products,
-    isActive: state.orderPage.isActive
+    isActive: state.orderPage.isActive,
   };
 };
 export const Main = connect(mapStateToProps, { setProducts })(MainComponent);
