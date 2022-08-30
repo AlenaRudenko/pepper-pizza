@@ -3,11 +3,12 @@ import { OrderButton } from "../../../components/OrderButton";
 import "./styles.css";
 import { AccountButton } from "./../../../components/AccountButton";
 import { NavLink } from "react-router-dom";
-
+import {myContext} from './../../../App.js'
 export class Header extends React.Component {
   render() {
     return (
-      <div className="header">
+    <myContext.Consumer>
+        {({background}) => <div className="header">
         <div className="header__container">
           <div className="header__logo">
             <img src={require("./image.png")} />
@@ -18,10 +19,14 @@ export class Header extends React.Component {
           </div>
         </div>
         <div>
+            <button style={{backgroundColor: background}}>CHANGE THEME</button>
           <AccountButton />
           <OrderButton></OrderButton>
         </div>
-      </div>
+      </div>}
+            
+        </myContext.Consumer>
+      
     );
   }
 }

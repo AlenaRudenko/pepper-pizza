@@ -1,5 +1,5 @@
 import React from "react";
-import { CSSTransition } from "react-transition-group";
+
 import { Header } from "./pages/main-page/header/Header";
 import "./styles.css";
 import { connect } from "react-redux";
@@ -11,8 +11,6 @@ import { OrderPageComponent } from "./pages/order-page/OrderPageComponent";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main-page/content/MainPage";
-import { AccountPage } from "./pages/account-page/AccountPage";
-import { ProfilePage } from "./pages/profile-page/ProfilePage";
 import { AuthPage } from "./pages/auth-page/AuthPage";
 
 interface IState {
