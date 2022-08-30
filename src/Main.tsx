@@ -13,6 +13,7 @@ import { Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main-page/content/MainPage";
 import { AccountPage } from "./pages/account-page/AccountPage";
 import { ProfilePage } from "./pages/profile-page/ProfilePage";
+import { AuthPage } from "./pages/auth-page/AuthPage";
 
 interface IState {
   isLoading: boolean;
@@ -33,7 +34,7 @@ class MainComponent extends React.Component<IProps, IState> {
   async componentDidMount() {
     await axios
       .get<IPizza[]>("https://626d16545267c14d5677d9c2.mockapi.io/items")
-      .then((response) => this.props.setProducts(response.data));
+      .then((response) => this.props.setProducts(response.data.filter(item => +item.id <= 9)));
     this.setState({ isLoading: !this.state.isLoading });
   }
 
@@ -52,7 +53,7 @@ class MainComponent extends React.Component<IProps, IState> {
             }
           />
           <Route path='/basket' element={<OrderPageComponent />} />
-          <Route path='/profile' element={<ProfilePage />} />
+          <Route path='/auth' element={<AuthPage />} />
         </Routes>
       </div>
     );

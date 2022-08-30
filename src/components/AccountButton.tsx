@@ -4,7 +4,7 @@ import "./../pages/main-page/header/styles.css";
 export const AccountButton = () => {
   return (
     <div className='account-button'>
-      <NavLink to='/account'>Войти</NavLink>
+      <NavLink to='/auth'>Войти</NavLink>
     </div>
   );
 };

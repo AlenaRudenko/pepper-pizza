@@ -2,6 +2,7 @@ import React from "react";
 import { OrderButton } from "../../../components/OrderButton";
 import "./styles.css";
 import { AccountButton } from "./../../../components/AccountButton";
+import { NavLink } from "react-router-dom";
 
 export class Header extends React.Component {
   render() {
@@ -12,7 +13,7 @@ export class Header extends React.Component {
             <img src={require("./image.png")} />
           </div>
           <div className="header__text">
-            <h1>Pepper Pizza</h1>
+            <NavLink className="Link-decoration--logo" to='/'><h1>Pepper Pizza</h1></NavLink>
             <h3>Самая вкусная пицца во вселенной</h3>
           </div>
         </div>

@@ -117,3 +117,6 @@ select {
   column-gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+NavLink {
+    text-decoration:none;
+}
