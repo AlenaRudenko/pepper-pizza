@@ -58,8 +58,8 @@
 .price {
   margin-right: 20px;
 }
-.Link-decoration {
-  color: white;
+.Link-decoration--logo {
+  color: black;
   font-weight: 500;
   font-size: 15px;
   text-decoration: none;
@@ -79,4 +79,10 @@
 .account-button:hover {
   cursor: pointer;
   box-shadow: 0px 5px 5px 0px #0000000a;
+}
+.Link-decoration {
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
 }

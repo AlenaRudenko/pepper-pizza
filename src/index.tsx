@@ -1,12 +1,12 @@
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { OrderPageComponent } from "./pages/order-page/OrderPageComponent";
-import { AccountPage } from "./pages/account-page/AccountPage";
+import { BrowserRouter } from "react-router-dom";
+import {App}   from "./App";
+
 
 ReactDOM.render(
   <BrowserRouter>
