@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Main } from "./Main";
-import "./styles.css";
-import React from 'react'
+
 interface IContext {
     background:string
 }
@@ -9,27 +8,21 @@ interface IState {
     theme:IContext;
     toggleTheme:() => void;
 }
-export class App extends React.Component<IState>{
-    constructor(props){
-        super(props);
-        this.state = {
-       theme: themes.light,
-       toggleTheme: this.toggleThemeFunc,
-       }
-       this.toggleThemeFunc = () => {
-      this.setState((state) => ({
-        theme:
-          state.theme === themes.dark
-            ? themes.light
-            : themes.dark,
-      }));
-   }; 
-       return (
+export const App = () => {
+    [state, setState] = useState(themes.light);
+    const toggleThemeFunc = () = {
+        setState(state => {(theme: if (state.theme === themes.light) {
+            return themes.dark
+            else return themes.light
+        }  )})
+    }
+        return (
       <myContext.Provider value={this.state}>
         <div className='app'>
           <Main />
         </div> 
-      </myContext.Provider>
+      </myContext.Provider>)
+}      
 
 
 
