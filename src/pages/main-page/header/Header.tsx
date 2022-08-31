@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { OrderButton } from "../../../components/OrderButton";
 import "./styles.css";
 import { AccountButton } from "./../../../components/AccountButton";
 import { NavLink } from "react-router-dom";
 
+
+
 export class Header extends React.Component {
+
+
   render() {
+
     return (
 <div className="header">
         <div className="header__container">
@@ -17,12 +22,12 @@ export class Header extends React.Component {
             <h3>Самая вкусная пицца во вселенной</h3>
           </div>
         </div>
-        <div>
-            <button style={{backgroundColor: 'red'}}>CHANGE THEME</button>
+        <div>        
           <AccountButton />
           <OrderButton></OrderButton>
         </div>
       </div>
+
       
     );
   }
