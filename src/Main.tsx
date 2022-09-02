@@ -12,7 +12,6 @@ import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main-page/content/MainPage";
 import { AuthPage } from "./pages/auth-page/AuthPage";
-import { Context } from "./App";
 
 interface IState {
   isLoading: boolean;
@@ -40,9 +39,8 @@ class MainComponent extends React.Component<IProps, IState> {
 
   render() {
     
-    const {colors, setColors} = this.context!;
     return (
-      <div style={{backgroundColor:colors.backgroundCAppContainer}}className='app__container'>
+      <div className='app__container'>
         <Header />
         <Routes>
           <Route
