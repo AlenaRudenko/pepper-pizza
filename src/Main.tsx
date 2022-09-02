@@ -12,6 +12,7 @@ import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import { MainPage } from "./pages/main-page/content/MainPage";
 import { AuthPage } from "./pages/auth-page/AuthPage";
+import { AccountPage } from "./pages/account-page/AccountPage";
 
 interface IState {
   isLoading: boolean;
@@ -54,6 +55,7 @@ class MainComponent extends React.Component<IProps, IState> {
           />
           <Route path='/basket' element={<OrderPageComponent />} />
           <Route path='/auth' element={<AuthPage />} />
+          <Route path='/userpage' element={<AccountPage />}/>
         </Routes>
       </div>
     );

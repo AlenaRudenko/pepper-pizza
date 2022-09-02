@@ -1,6 +1,6 @@
 import axios from "axios"
-import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { createContext, useState } from "react"
+import { NavLink, useNavigate } from "react-router-dom"
 
 import './styles.css'
 interface IApiUser {
@@ -21,7 +21,12 @@ interface IGeo {
     lat:string;
     lng:string;
 }
+const Context = createContext({userN:'', userPass:''})
 export const AuthPage = () => {
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate('/')
+    }
     let ApiUsers:IApiUser[] = [];
     const [user, setUs] = useState({userN:'', userPass:''})
     const eventHandlerEmail = (e:any) => {
@@ -33,11 +38,12 @@ export const AuthPage = () => {
        setUs((user) => ({...user, userPass:e.target.value})) 
        
     }
-    const checkUser = () => {
-            axios.get('https://jsonplaceholder.typicode.com/users').then(response => ApiUsers = [...response.data]);
-
-        if (ApiUsers.find(value => value.email === user.userN) ) {
-            alert('SUPER') 
+     const checkUser = async () => {
+            await axios.get('https://jsonplaceholder.typicode.com/users').then(response => ApiUsers = [...response.data]);
+        console.log(ApiUsers)
+        if (ApiUsers.find(value => value.email === user.userN && value.name === user.userPass) ) {
+            setUs(user => ({...user, userN:'', userPass:''}));
+            goBack();
         }
         
     }
