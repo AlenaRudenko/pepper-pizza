@@ -1,24 +1,51 @@
-import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import axios from "axios"
+import { createContext, useState } from "react"
+import { NavLink, useNavigate } from "react-router-dom"
 
 import './styles.css'
-
-
+interface IApiUser {
+    id:number;
+    name:string;
+    username:string;
+    email:string;
+    adress: IAdress
+}
+interface IAdress {
+    street:string;
+    suite:string;
+    city:string;
+    zipcode:string;
+    geo:IGeo
+}
+interface IGeo {
+    lat:string;
+    lng:string;
+}
+const Context = createContext({userN:'', userPass:''})
 export const AuthPage = () => {
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate('/')
+    }
+    let ApiUsers:IApiUser[] = [];
     const [user, setUs] = useState({userN:'', userPass:''})
     const eventHandlerEmail = (e:any) => {
        setUs((user) => ({...user, userN:e.target.value})) 
-       console.log(user)
+       
     }
+
      const eventHandlerPassword = (e:any) => {
        setUs((user) => ({...user, userPass:e.target.value})) 
-       console.log(user)
+       
     }
-    const checkUser = () => {
-        console.log(user)
-        if (user.userN === '123' ) {
-            alert('SUPER') 
+     const checkUser = async () => {
+            await axios.get('https://jsonplaceholder.typicode.com/users').then(response => ApiUsers = [...response.data]);
+        console.log(ApiUsers)
+        if (ApiUsers.find(value => value.email === user.userN && value.name === user.userPass) ) {
+            setUs(user => ({...user, userN:'', userPass:''}));
+            goBack();
         }
+        
     }
     return <div className="auth__container">
         <div className="auth__forms">
