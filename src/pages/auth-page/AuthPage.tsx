@@ -24,26 +24,23 @@ interface IGeo {
 const Context = createContext({userN:'', userPass:''})
 export const AuthPage = () => {
     const navigate = useNavigate();
-    const goBack = () => {
-        navigate('/')
-    }
+    const goBack = () => navigate('/');
+    
     let ApiUsers:IApiUser[] = [];
     const [user, setUs] = useState({userN:'', userPass:''})
     const eventHandlerEmail = (e:any) => {
        setUs((user) => ({...user, userN:e.target.value})) 
        
     }
-
      const eventHandlerPassword = (e:any) => {
-       setUs((user) => ({...user, userPass:e.target.value})) 
-       
+        setUs((user) => ({...user, userPass:e.target.value}))     
     }
      const checkUser = async () => {
             await axios.get('https://jsonplaceholder.typicode.com/users').then(response => ApiUsers = [...response.data]);
-        console.log(ApiUsers)
-        if (ApiUsers.find(value => value.email === user.userN && value.name === user.userPass) ) {
+        if (ApiUsers.find(value => value.id === +user.userN && value.id === +user.userPass) ) {
             setUs(user => ({...user, userN:'', userPass:''}));
-            goBack();
+            goBack()
+            
         }
         
     }
