@@ -54,6 +54,6 @@ export const AuthPage = () => {
         </div>
        
         <span>Нет аккаунта?</span>
-        <NavLink to='/logon'>Зарегистрироваться</NavLink>
+        <NavLink to='/registration'>Зарегистрироваться</NavLink>
     </div>
 }
