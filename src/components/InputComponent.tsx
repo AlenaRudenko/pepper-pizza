@@ -1,12 +1,27 @@
-import './../pages/reg-page/styles.css'
+import "./../pages/reg-page/styles.css";
 
 interface IProps {
-  type:string;
-  name:string;
-  placeholder:string;
+  type?: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: any) => void;
 }
 
-
-export const InputComponent = ({type, name, placeholder}:IProps) => {
-  return <div><input type={type ? type : 'text'} placeholder={placeholder} className={name ? name : 'default__input'} /></div>
-}
+export const InputComponent = ({
+  onChange,
+  value,
+  type,
+  placeholder,
+}: IProps) => {
+  return (
+    <div>
+      <input
+        onChange={onChange}
+        value={value}
+        type={type ? type : "text"}
+        placeholder={placeholder}
+        className={"default__input"}
+      />
+    </div>
+  );
+};
