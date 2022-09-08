@@ -1,0 +1,10 @@
+.registration__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.default__input {
+  text-decoration: none;
+  border: 1ps solid pink;
+  margin-bottom: 10px;
+}
